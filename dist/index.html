@@ -15,8 +15,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,700;0,800;1,700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=2">
+  <link rel="stylesheet" href="style.css?v=3">
   <script src="kontakt.js" defer></script>
+  <script src="uvodni-video.js" defer></script>
 </head>
 <body id="nahoru">
   <a class="skip" href="#obsah">Přeskočit na obsah</a>
@@ -33,13 +34,16 @@
   </header>
   <main id="obsah">
     <section class="hero" aria-labelledby="hero-title">
-      <div class="hero-photo"><img src="assets/kurt.jpg" alt="" fetchpriority="high" width="1900" height="2850"></div>
+      <div class="hero-photo" aria-hidden="true">
+        <video id="uvodni-video" muted loop playsinline preload="none" poster="assets/tenis-ve-hre-poster.jpg" data-src="assets/tenis-ve-hre.mp4"></video>
+      </div>
       <div class="wrap hero-inner">
         <p class="eyebrow"><span class="dot"></span> Park Holiday · Praha-Benice</p>
         <h1 id="hero-title">Tenisové tréninky<br><em>v Benicích</em></h1>
         <p class="lead">Jsem Vojtěch Burian, hlavní tenisový trenér v Parku Holiday. Pomůžu vám s prvními údery i s dalším krokem ve vaší hře.</p>
         <a class="button primary" href="#kontakt">Domluvit trénink <span aria-hidden="true">↗</span></a>
       </div>
+      <button class="hero-video-toggle" type="button" aria-controls="uvodni-video" hidden>Přehrát video</button>
     </section>
 
     <section class="about section wrap" id="o-mne" aria-labelledby="about-title">
