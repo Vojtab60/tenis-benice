@@ -1,6 +1,7 @@
 const video = document.querySelector("#uvodni-video");
 const toggle = document.querySelector(".hero-video-toggle");
 const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+let manuallyControlled = false;
 
 function updateToggle() {
   toggle.textContent = video.paused ? "Přehrát video" : "Pozastavit video";
@@ -37,6 +38,7 @@ video.addEventListener("pause", updateToggle);
 video.addEventListener("error", () => { toggle.hidden = true; });
 
 toggle.addEventListener("click", () => {
+  manuallyControlled = true;
   if (video.paused) {
     playVideo(true);
   } else {
@@ -49,4 +51,16 @@ reducedMotion.addEventListener("change", (event) => {
 });
 
 toggle.hidden = false;
-if (!reducedMotion.matches) playVideo();
+function scheduleAutoplay() {
+  const connection = navigator.connection;
+  if (connection?.saveData || ["slow-2g", "2g", "3g"].includes(connection?.effectiveType)) return;
+
+  const start = () => {
+    if (!manuallyControlled && !reducedMotion.matches) playVideo();
+  };
+  if ("requestIdleCallback" in window) window.requestIdleCallback(start, { timeout: 1500 });
+  else setTimeout(start, 400);
+}
+
+if (document.readyState === "complete") scheduleAutoplay();
+else window.addEventListener("load", scheduleAutoplay, { once: true });

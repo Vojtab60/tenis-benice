@@ -2,26 +2,33 @@
 <html lang="cs">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#201817">
-  <meta name="description" content="Tenisové tréninky s Vojtou Burianem v Parku Holiday v Benicích nebo po domluvě na jiném kurtu. Napište a domluvte si trénink.">
-  <meta property="og:title" content="Tenisové tréninky s Vojtou Burianem">
-  <meta property="og:description" content="Domluvte si trénink v Parku Holiday v Benicích nebo na jiném kurtu, který vám vyhovuje.">
+  <title>Tenisový trenér Benice, Říčany a Praha | Vojta Burian</title>
+  <meta name="description" content="Tenisové tréninky pro děti i dospělé všech úrovní. Individuální i skupinové lekce v Parku Holiday v Benicích, po domluvě také v Říčanech, Praze a okolí.">
+  <link rel="canonical" href="https://tenisburian.cz/">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://vojtech-burian-tenis.mightyfloat16.chatgpt.site/">
-  <meta property="og:image" content="https://vojtech-burian-tenis.mightyfloat16.chatgpt.site/assets/kurt.jpg">
-  <link rel="canonical" href="https://vojtech-burian-tenis.mightyfloat16.chatgpt.site/">
-  <title>Tenisové tréninky s Vojtou Burianem</title>
+  <meta property="og:locale" content="cs_CZ">
+  <meta property="og:title" content="Tenisové tréninky s Vojtou Burianem">
+  <meta property="og:description" content="Individuální i skupinový tenis pro děti a dospělé. Potkáme se v Parku Holiday v Benicích nebo po domluvě v Říčanech, Praze a okolí.">
+  <meta property="og:url" content="https://tenisburian.cz/">
+  <meta property="og:image" content="https://tenisburian.cz/assets/tenis-ve-hre-poster.jpg">
+  <meta property="og:image:width" content="1280">
+  <meta property="og:image:height" content="720">
+  <meta property="og:image:alt" content="Vojta Burian při podání na tenisovém kurtu">
+  <meta name="twitter:card" content="summary_large_image">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,700;0,800;1,700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=8">
-  <script src="kontakt.js?v=2" defer></script>
-  <script src="uvodni-video.js?v=2" defer></script>
+  <link rel="stylesheet" href="style.css?v=9">
+  <script src="kontakt.js?v=3" defer></script>
+  <script src="uvodni-video.js?v=3" defer></script>
+  <link rel="preload" as="image" href="assets/tenis-ve-hre-poster.jpg" fetchpriority="high">
 </head>
-<body id="nahoru">
+<body>
+  <div class="site-content">
   <a class="skip" href="#obsah">Přeskočit na obsah</a>
-  <header class="header">
+  <header class="header" id="nahoru">
     <div class="wrap header-inner">
       <a class="brand" href="#nahoru"><span class="ball" aria-hidden="true"></span><span>Vojtěch Burian<small>Tenisové tréninky</small></span></a>
       <nav aria-label="Hlavní navigace">
@@ -38,10 +45,11 @@
         <video id="uvodni-video" muted loop playsinline preload="none" poster="assets/tenis-ve-hre-poster.jpg" data-src="assets/tenis-ve-hre.mp4"></video>
       </div>
       <div class="wrap hero-inner">
-        <p class="eyebrow"><span class="dot"></span> Benice · Říčany a okolí</p>
+        <p class="eyebrow"><span class="dot"></span> Benice · Říčany · Praha a okolí</p>
         <h1 id="hero-title">Tenisové tréninky<br><em>s Vojtou Burianem</em></h1>
-        <p class="lead">Jsem hlavní tenisový trenér v Parku Holiday v Benicích. Po domluvě můžeme trénovat i na jiných kurtech v Praze a okolí.</p>
-        <a class="button primary" href="#kontakt">Domluvit trénink <span aria-hidden="true">↗</span></a>
+        <p class="lead hero-offer">Trénuji děti i dospělé všech herních úrovní. Individuálně i ve skupině.</p>
+        <p class="hero-location">Jsem hlavní tenisový trenér v Parku Holiday v Benicích. Po domluvě můžeme trénovat i na jiných kurtech v Praze, Říčanech a okolí.</p>
+        <a class="button primary" href="#kontakt" data-inquiry-link>Domluvit trénink <span aria-hidden="true">↗</span></a>
       </div>
       <button class="hero-video-toggle" type="button" aria-controls="uvodni-video" hidden>Přehrát video</button>
     </section>
@@ -50,7 +58,6 @@
       <div class="about-copy">
         <p class="eyebrow"><span class="dot"></span> O mně</p>
         <h2 id="about-title">Vojtěch Burian</h2>
-        <p class="intro">Jsem hlavní tenisový trenér v Parku Holiday v Benicích.</p>
         <p>K trénování jsem se dostal po zranění, které ukončilo moji závodní kariéru. Trénuji přes čtyři roky, zkušenosti jsem získal i v Německu a studuji na FTVS se zaměřením na trénování tenisu.</p>
         <div class="career">
           <h3>Moje hráčská minulost</h3>
@@ -66,7 +73,7 @@
       <div class="wrap">
         <p class="eyebrow"><span class="dot"></span> Tréninky</p>
         <h2 id="training-title">Na čem můžeme pracovat</h2>
-        <p class="intro">Trénuji děti i dospělé všech věkových kategorií a herních úrovní, od úplných začátečníků po pokročilé hráče. Nabízím individuální i skupinové tréninky.</p>
+        <p class="intro">Zaměření lekce přizpůsobím tomu, co potřebujete na kurtu zlepšit.</p>
         <div class="training-grid">
           <article><h3>První kroky</h3><p>Projdeme držení rakety, základní údery a pohyb na kurtu. Cílem je zahrát první výměny s jistotou.</p></article>
           <article><h3>Jistější údery</h3><p>Podíváme se na to, kde vám míče nejčastěji utíkají. Můžeme zapracovat na forhendu, bekhendu nebo podání.</p></article>
@@ -80,7 +87,7 @@
         <p class="eyebrow"><span class="dot"></span> Kde trénuju</p>
         <h2 id="location-title">Park Holiday</h2>
         <p class="intro">Nejčastěji trénuji v Parku Holiday v Benicích, kousek od Říčan.</p>
-        <p>Po domluvě můžeme trénovat i na jiném místě v Praze nebo v okolí Benic a Říčan.</p>
+        <p>Máte svůj oblíbený kurt v Praze, Říčanech nebo okolí? Napište mi, kde se vám trénink hodí.</p>
         <address>Květnového povstání 194<br>103 00 Praha-Benice</address>
         <a class="button outline" href="https://www.google.com/maps/search/?api=1&amp;query=Park+Holiday+Květnového+povstání+194+Praha+Benice">Otevřít mapu <span aria-hidden="true">↗</span></a>
       </div>
@@ -101,23 +108,69 @@
         <div>
           <p class="eyebrow"><span class="dot"></span> Kontakt</p>
           <h2 id="contact-title">Domluvme se<br>na tréninku</h2>
-          <p class="lead">Napište mi, jak dlouho hrajete, kdy máte čas a kde vám trénink vyhovuje. Domluvíme se na místě, termínu, ceně a zaměření lekce.</p>
+          <p class="lead">Napište mi nebo zavolejte. Domluvíme se na místě, termínu, ceně a zaměření lekce.</p>
           <div class="contact-links">
-            <a id="primy-email" href="mailto:vojtech.burian@parkholiday.cz?subject=Z%C3%A1jem%20o%20tenisov%C3%BD%20tr%C3%A9nink">vojtech.burian@parkholiday.cz <span aria-hidden="true">↗</span></a>
-            <a href="tel:+420720035620">Zavolat · +420 720 035 620 <span aria-hidden="true">↗</span></a>
+            <a class="button contact-method" href="tel:+420720035620">Zavolat <span>+420 720 035 620</span></a>
+            <a class="button contact-method" href="mailto:vojtech.burian@parkholiday.cz?subject=Z%C3%A1jem%20o%20tenisov%C3%BD%20tr%C3%A9nink">Napsat e-mail <span>vojtech.burian@parkholiday.cz</span></a>
           </div>
         </div>
-        <form id="poptavka" class="contact-form" hidden>
-          <h3>Poptávka tréninku</h3>
-          <label for="jmeno">Vaše jméno</label>
-          <input name="jmeno" id="jmeno" autocomplete="name" maxlength="100" required>
-          <label for="zprava">Co byste chtěli trénovat?</label>
-          <textarea name="zprava" id="zprava" rows="4" maxlength="1200" placeholder="Napište pár slov o své hře a kdy a kde se vám trénink hodí." required></textarea>
-          <button class="button primary" type="submit">Otevřít připravený e-mail <span aria-hidden="true">↗</span></button>
-          <p class="form-note">Zprávu odešlete ze své e-mailové aplikace.</p>
-          <p class="form-note" id="obnoveni-poptavky" hidden>
-            Neotevřel se e-mail? <button class="form-restore" type="button">Obnovit údaje</button>
-          </p>
+        <form id="poptavka" class="contact-form" method="post" aria-labelledby="inquiry-title" tabindex="-1" hidden>
+          <h3 id="inquiry-title">Poptávka tréninku</h3>
+          <div class="form-fields">
+            <div class="form-field">
+              <label for="jmeno">Jméno a příjmení</label>
+              <input name="name" id="jmeno" autocomplete="name" maxlength="100" required>
+            </div>
+            <div class="form-field">
+              <label for="spojeni">E-mail nebo telefon</label>
+              <input name="kontakt" id="spojeni" autocapitalize="none" spellcheck="false" maxlength="150" required>
+            </div>
+            <div class="form-field">
+              <label for="hrac">Pro koho je trénink?</label>
+              <select name="Pro koho" id="hrac" required>
+                <option value="">Vyberte možnost</option>
+                <option>Dítě</option>
+                <option>Dospělý</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <label for="typ-treninku">Typ tréninku</label>
+              <select name="Typ tréninku" id="typ-treninku" required>
+                <option value="">Vyberte možnost</option>
+                <option>Individuální</option>
+                <option>Skupinový</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <label for="uroven">Herní úroveň</label>
+              <select name="Herní úroveň" id="uroven" required>
+                <option value="">Vyberte možnost</option>
+                <option>Začátečník</option>
+                <option>Mírně pokročilý</option>
+                <option>Pokročilý</option>
+                <option>Závodní hráč</option>
+                <option>Nevím</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <label for="misto">Preferované místo</label>
+              <select name="Místo" id="misto" required>
+                <option value="">Vyberte možnost</option>
+                <option>Benice</option>
+                <option>Říčany a okolí</option>
+                <option>Jiný kurt</option>
+              </select>
+            </div>
+            <div class="form-field form-field-wide">
+              <label for="zprava">Doplňující informace a časové možnosti <small>nepovinné</small></label>
+              <textarea name="message" id="zprava" rows="3" maxlength="1500" placeholder="Napište, kdy máte čas, případně který kurt vám vyhovuje."></textarea>
+            </div>
+          </div>
+          <input type="hidden" name="subject" value="Poptávka tenisového tréninku z tenisburian.cz">
+          <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" hidden>
+          <p class="form-note">Údaje použiji k vyřízení vaší poptávky. Formulář zpracovává <a href="https://formspree.io/legal/privacy-policy/">Formspree</a>.</p>
+          <button class="button primary" type="submit">Odeslat poptávku <span aria-hidden="true">↗</span></button>
+          <p class="form-status" role="status" aria-live="polite"></p>
         </form>
       </div>
     </section>
@@ -125,5 +178,9 @@
   <footer>
     <div class="wrap footer-inner"><span>Vojtěch Burian · Praha-Benice</span><a href="#nahoru">Zpět nahoru ↑</a></div>
   </footer>
+  </div>
+  <div class="mobile-inquiry" hidden>
+    <a class="button primary" href="#kontakt" data-inquiry-link>Domluvit trénink <span aria-hidden="true">↗</span></a>
+  </div>
 </body>
 </html>
