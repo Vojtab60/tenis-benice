@@ -15,8 +15,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,700;0,800;1,700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=10">
-  <script src="kontakt.js?v=4" defer></script>
+  <link rel="stylesheet" href="style.css?v=11">
+  <script src="kontakt.js?v=5" defer></script>
   <script src="uvodni-video.js?v=2" defer></script>
 </head>
 <body>
@@ -104,21 +104,23 @@
           <h2 id="contact-title">Domluvme se<br>na tréninku</h2>
           <p class="lead">Napište mi, jak dlouho hrajete, kdy máte čas a kde vám trénink vyhovuje. Domluvíme se na místě, termínu, ceně a zaměření lekce.</p>
           <div class="contact-links">
-            <a id="primy-email" href="mailto:vojtech.burian@parkholiday.cz?subject=Z%C3%A1jem%20o%20tenisov%C3%BD%20tr%C3%A9nink">vojtech.burian@parkholiday.cz <span aria-hidden="true">↗</span></a>
+            <a href="mailto:vojtech.burian@parkholiday.cz?subject=Z%C3%A1jem%20o%20tenisov%C3%BD%20tr%C3%A9nink">vojtech.burian@parkholiday.cz <span aria-hidden="true">↗</span></a>
             <a href="tel:+420720035620">Zavolat · +420 720 035 620 <span aria-hidden="true">↗</span></a>
           </div>
         </div>
-        <form id="poptavka" class="contact-form" hidden>
-          <h3>Poptávka tréninku</h3>
+        <form id="poptavka" class="contact-form" action="https://formspree.io/f/mgakdqbj" method="post" aria-labelledby="poptavka-nadpis" hidden>
+          <h3 id="poptavka-nadpis">Poptávka tréninku</h3>
           <label for="jmeno">Vaše jméno</label>
           <input name="jmeno" id="jmeno" autocomplete="name" maxlength="100" required>
-          <label for="zprava">Co byste chtěli trénovat?</label>
-          <textarea name="zprava" id="zprava" rows="4" maxlength="1200" placeholder="Napište pár slov o své hře a kdy a kde se vám trénink hodí." required></textarea>
-          <button class="button primary" type="submit">Otevřít připravený e-mail <span aria-hidden="true">↗</span></button>
-          <p class="form-note">Zprávu odešlete ze své e-mailové aplikace.</p>
-          <p class="form-note" id="obnoveni-poptavky" hidden>
-            Neotevřel se e-mail? <button class="form-restore" type="button">Obnovit údaje</button>
-          </p>
+          <label for="email">Váš e-mail</label>
+          <input type="email" name="email" id="email" autocomplete="email" required>
+          <label for="telefon">Telefon</label>
+          <input type="tel" name="phone" id="telefon" autocomplete="tel">
+          <label for="zprava">Kdy by se vám trénink hodil?</label>
+          <textarea name="zprava" id="zprava" rows="4" maxlength="1200" required></textarea>
+          <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" hidden>
+          <button class="button primary" type="submit"><span class="submit-label">Odeslat poptávku</span> <span aria-hidden="true">↗</span></button>
+          <p class="form-status" role="status"></p>
         </form>
       </div>
     </section>
