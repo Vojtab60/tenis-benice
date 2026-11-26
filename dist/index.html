@@ -19,6 +19,26 @@
   <meta name="twitter:image:alt" content="Vojta Burian s raketou, tenisové tréninky pro děti i dospělé v Praze, Benicích a okolí Říčan">
   <link rel="canonical" href="https://tenisburian.cz/">
   <title>Tenisové tréninky s Vojtou Burianem</title>
+  <script>
+    (() => {
+      // A fresh visit starts at the introduction, even when a shared URL includes a section.
+      if ("scrollRestoration" in history) history.scrollRestoration = "manual";
+      if (location.hash) history.replaceState(history.state, "", location.pathname + location.search);
+
+      window.addEventListener("pageshow", (event) => {
+        if (event.persisted) return;
+
+        const scrollToIntro = () => {
+          if (location.hash) return;
+          window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+          document.querySelector(".site-content").scrollTo({ top: 0, left: 0, behavior: "instant" });
+        };
+
+        scrollToIntro();
+        requestAnimationFrame(scrollToIntro);
+      }, { once: true });
+    })();
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,700;0,800;1,700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
