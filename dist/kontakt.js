@@ -51,9 +51,15 @@ form.addEventListener("submit", async (event) => {
       body: data,
       signal: controller.signal
     });
-    const result = await response.json();
-    if (!response.ok || result?.error || result?.errors || typeof result?.next !== "string") {
+    if (!response.ok || response.redirected) {
       throw new Error("Formspree did not accept the submission");
+    }
+
+    const result = await response.json();
+    const hasErrors = Array.isArray(result?.errors) ? result.errors.length > 0 : Boolean(result?.errors);
+    const accepted = result?.ok === true || typeof result?.next === "string";
+    if (!accepted || result?.ok === false || result?.error || hasErrors) {
+      throw new Error("Formspree did not confirm the submission");
     }
 
     form.reset();
