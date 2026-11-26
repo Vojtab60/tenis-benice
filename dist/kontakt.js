@@ -11,6 +11,7 @@ const button = form.querySelector('button[type="submit"]');
 const buttonLabel = button.querySelector(".submit-label");
 const status = form.querySelector(".form-status");
 const errorMessage = "Poptávku se nepodařilo odeslat. Zkuste to prosím znovu nebo mě kontaktujte telefonicky.";
+const unconfirmedMessage = "Nepodařilo se ověřit, zda poptávka dorazila. Pokud se vám neozvu, zavolejte mi.";
 
 function showFormStatus(kind, message) {
   status.dataset.kind = kind;
@@ -42,32 +43,37 @@ form.addEventListener("submit", async (event) => {
   buttonLabel.textContent = "Odesílám…";
   showFormStatus("pending", "");
 
-  const controller = new AbortController();
-  const timeout = setTimeout(() => controller.abort(), 15000);
   try {
-    const response = await fetch(form.action, {
-      method: "POST",
-      headers: { Accept: "application/json" },
-      body: data,
-      signal: controller.signal
-    });
-    if (!response.ok || response.redirected) {
-      throw new Error("Formspree did not accept the submission");
+    let response;
+    try {
+      response = await fetch(form.action, {
+        method: "POST",
+        headers: { Accept: "application/json" },
+        body: data
+      });
+    } catch (error) {
+      console.warn("Formspree: odpověď se nepodařilo načíst.", error);
+      showFormStatus("unconfirmed", unconfirmedMessage);
+      return;
     }
 
-    const result = await response.json();
-    const hasErrors = Array.isArray(result?.errors) ? result.errors.length > 0 : Boolean(result?.errors);
-    const accepted = result?.ok === true || typeof result?.next === "string";
-    if (!accepted || result?.ok === false || result?.error || hasErrors) {
-      throw new Error("Formspree did not confirm the submission");
+    if (!response.ok) {
+      console.warn("Formspree: požadavek vrácen se stavem", response.status);
+      showFormStatus("error", errorMessage);
+      return;
     }
 
-    form.reset();
+    const contentType = response.headers.get("content-type") || "";
+    if (response.redirected || contentType.includes("text/html")) {
+      console.warn("Formspree: neočekávaná odpověď.", response.status);
+      showFormStatus("unconfirmed", unconfirmedMessage);
+      return;
+    }
+
+    // Formspree confirms an AJAX submission with a successful HTTP status.
     showFormStatus("success", "Děkuji za poptávku! Ozvu se vám co nejdříve.");
-  } catch {
-    showFormStatus("error", errorMessage);
+    form.reset();
   } finally {
-    clearTimeout(timeout);
     contactFields.forEach((field) => { field.readOnly = false; });
     button.disabled = false;
     buttonLabel.textContent = "Odeslat poptávku";
